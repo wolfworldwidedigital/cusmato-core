@@ -1,5 +1,7 @@
 from ._anvil_designer import LoginTemplate
 from anvil import *
+import anvil.facebook.auth
+import anvil.server
 import anvil.users
 from ...utils.Navigation import navigate
 

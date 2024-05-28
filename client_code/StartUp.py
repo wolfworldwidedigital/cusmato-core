@@ -1,3 +1,5 @@
+import anvil.facebook.auth
+import anvil.server
 from .utils import Data
 from .utils.Navigation import navigate
 from anvil import set_default_error_handling

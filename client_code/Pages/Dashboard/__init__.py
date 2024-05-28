@@ -1,5 +1,6 @@
 from ._anvil_designer import DashboardTemplate
 from anvil import *
+import anvil.facebook.auth
 import anvil.server
 from ...utils import Data, Properties, emitter
 from ...utils.Navigation import navigate

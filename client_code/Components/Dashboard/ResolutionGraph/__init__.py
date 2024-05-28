@@ -1,3 +1,5 @@
+import anvil.facebook.auth
+import anvil.server
 from ._anvil_designer import ResolutionGraphTemplate
 from ....utils import Properties
 from anvil.js.window import Chart

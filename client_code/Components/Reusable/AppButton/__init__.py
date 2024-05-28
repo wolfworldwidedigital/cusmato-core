@@ -1,3 +1,5 @@
+import anvil.facebook.auth
+import anvil.server
 from ._anvil_designer import AppButtonTemplate
 from anvil import HtmlTemplate
 from ....utils import Properties

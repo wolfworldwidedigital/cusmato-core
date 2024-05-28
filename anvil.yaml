@@ -5,13 +5,17 @@ services:
   client_config: {}
   server_config: {}
 - source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: true, enable_automatically: true, use_email: true,
-    confirm_email: true, allow_remember_me: true, remember_me_days: 30, use_google: true}
+  client_config: {require_secure_passwords: true, use_token: true, use_email: true,
+    allow_remember_me: true, allow_signup: true, enable_automatically: true, confirm_email: true,
+    remember_me_days: 30, use_google: true, use_facebook: true}
   server_config: {user_table: users}
 - source: /runtime/services/google.yml
   client_config: {}
   server_config: {}
 - source: /runtime/services/anvil/email.yml
+  client_config: {}
+  server_config: {custom_smtp: true}
+- source: /runtime/services/facebook.yml
   client_config: {}
   server_config: {}
 startup: {type: module, module: StartUp}
@@ -114,6 +118,9 @@ db_schema:
     - name: password_hash
       admin_ui: {width: 200}
       type: string
+    - name: n_password_failures
+      admin_ui: {order: 9, width: 200}
+      type: number
   status:
     title: Status
     client: search

@@ -1,5 +1,6 @@
 from ._anvil_designer import CustomersTemplate
 from anvil import *
+import anvil.facebook.auth
 import anvil.server
 import string
 from ...utils import emitter, Validation

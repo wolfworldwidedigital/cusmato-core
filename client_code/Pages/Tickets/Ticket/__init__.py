@@ -1,5 +1,6 @@
 from ._anvil_designer import TicketTemplate
 from anvil import *
+import anvil.facebook.auth
 import anvil.server
 from ....utils import Data, Validation, emitter
 from datetime import date

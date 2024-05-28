@@ -1,5 +1,6 @@
 from ._anvil_designer import NewTicketTemplate
 from anvil import *
+import anvil.facebook.auth
 import anvil.server
 from ....utils import Validation, Data, emitter
 from ....utils.Navigation import navigate

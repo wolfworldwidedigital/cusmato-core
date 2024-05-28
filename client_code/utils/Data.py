@@ -1,3 +1,4 @@
+import anvil.facebook.auth
 """This module collects global variables to be used throughout the app"""
 
 import anvil.server
