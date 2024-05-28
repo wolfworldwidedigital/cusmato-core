@@ -36,17 +36,18 @@
   --grey-800: %color:Grey 800%;
   --grey-900: %color:Grey 900%;
   --grey-950: %color:Grey 950%;
-  --lilac-100: %color:Lilac 100%;
-  --lilac-200: %color:Lilac 200%;
-  --lilac-300: %color:Lilac 300%;
-  --lilac-400: %color:Lilac 400%;
-  --lilac-500: %color:Lilac 500%;
-  --lilac-600: %color:Lilac 600%;
-  --lilac-700: %color:Lilac 700%;
-  --lilac-750: %color:Lilac 750%;
-  --lilac-800: %color:Lilac 800%;
-  --lilac-850: %color:Lilac 850%;
-  --lilac-900: %color:Lilac 900%;
+  --slate-600: %color:Primary 200%
+  --slate-700: %color:Primary 300%
+  --slate-800: %color:Primary 400%
+  --slate-900: %color:Primary 500%
+  --slate-200: %color:Primary 600%
+  --slate-300: %color:Primary 700%
+  --slate-400: %color:Primary 800%
+  --slate-500: %color:Primary 900%
+  --slate-600: %color:Primary 950%
+  --slate-700: %color:Primary 200%
+  --slate-800: %color:Primary 300%
+  --slate-900: %color:Primary 400%
   --error-100: %color:Error 100%;
   --error-200: %color:Error 200%;
   --error-300: %color:Error 300%;

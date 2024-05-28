@@ -14,7 +14,7 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {custom_smtp: true}
+  server_config: {custom_smtp: false, smtp_encryption: ssl, test_mode: false}
 - source: /runtime/services/facebook.yml
   client_config: {}
   server_config: {}
