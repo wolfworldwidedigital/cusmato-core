@@ -36,25 +36,25 @@ roles:
 - {name: new-ticket-text-component}
 color_scheme:
   colors:
-  - {name: White, color: '#ffffff'}
-  - {name: Primary 100, color: '#d7d7e1'}
-  - {name: Primary 200, color: '#b0aec2'}
-  - {name: Primary 300, color: '#8886a4'}
-  - {name: Primary 400, color: '#615d85'}
-  - {name: Primary 500, color: '#393567'}
-  - {name: Primary 600, color: '#2e2a52'}
-  - {name: Primary 700, color: '#22203e'}
-  - {name: Primary 800, color: '#171529'}
+  - {name: White, color: '#E2E8F0'}
+  - {name: Primary 100, color: '#CBD5E1'}
+  - {name: Primary 200, color: '#94A3B8'}
+  - {name: Primary 300, color: '#64748B'}
+  - {name: Primary 400, color: '#475569'}
+  - {name: Primary 500, color: '#334155'}
+  - {name: Primary 600, color: '#1E293B'}
+  - {name: Primary 700, color: '#1E293B'}
+  - {name: Primary 800, color: '#020617'}
   - {name: Primary 900, color: '#0b0b15'}
-  - {name: Secondary 100, color: '#ccffef'}
-  - {name: Secondary 200, color: '#99ffdf'}
-  - {name: Secondary 300, color: '#66ffcf'}
-  - {name: Secondary 400, color: '#33ffbf'}
-  - {name: Secondary 500, color: '#00ffaf'}
-  - {name: Secondary 600, color: '#00cc8c'}
-  - {name: Secondary 700, color: '#009969'}
-  - {name: Secondary 800, color: '#006646'}
-  - {name: Secondary 900, color: '#003323'}
+  - {name: Secondary 100, color: '#E0F2FE'}
+  - {name: Secondary 200, color: '#BFDBFE'}
+  - {name: Secondary 300, color: '#93C5FD'}
+  - {name: Secondary 400, color: '#93C5FD'}
+  - {name: Secondary 500, color: '#60A5FA'}
+  - {name: Secondary 600, color: '#3B82F6'}
+  - {name: Secondary 700, color: '#075985'}
+  - {name: Secondary 800, color: '#1E3A8A'}
+  - {name: Secondary 900, color: '#172554'}
   - {name: Grey 050, color: '#e9e8e8'}
   - {name: Grey 100, color: '#d3d2d1'}
   - {name: Grey 200, color: '#a7a4a4'}
@@ -66,17 +66,17 @@ color_scheme:
   - {name: Grey 800, color: '#0e0b0b'}
   - {name: Grey 900, color: '#070605'}
   - {name: Grey 950, color: '#030303'}
-  - {name: Lilac 100, color: '#e5e3f8'}
-  - {name: Lilac 200, color: '#cbc6f0'}
-  - {name: Lilac 300, color: '#b2aae9'}
-  - {name: Lilac 400, color: '#988de1'}
-  - {name: Lilac 500, color: '#7e71da'}
-  - {name: Lilac 600, color: '#655aae'}
-  - {name: Lilac 700, color: '#4c4483'}
-  - {name: Lilac 750, color: '#3f396d'}
-  - {name: Lilac 800, color: '#322d57'}
-  - {name: Lilac 850, color: '#262241'}
-  - {name: Lilac 900, color: '#19172c'}
+  - {name: Lilac 100, color: '#FAFAF9'}
+  - {name: Lilac 200, color: '#F5F5F4'}
+  - {name: Lilac 300, color: '#E7E5E4'}
+  - {name: Lilac 400, color: '#D6D3D1'}
+  - {name: Lilac 500, color: '#A8A29E'}
+  - {name: Lilac 600, color: '#78716C'}
+  - {name: Lilac 700, color: '#57534E'}
+  - {name: Lilac 750, color: '#57534E'}
+  - {name: Lilac 800, color: '#44403C'}
+  - {name: Lilac 850, color: '#57534E'}
+  - {name: Lilac 900, color: '#292524'}
   - {name: Error 100, color: '#fed9d5'}
   - {name: Error 200, color: '#feb2ab'}
   - {name: Error 300, color: '#fd8c82'}
