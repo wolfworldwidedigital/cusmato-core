@@ -1,0 +1,42 @@
+container:
+  type: HtmlTemplate
+  properties: {html: "<div class=\"app\">\n  <div class=\"sidebar-darkbox\">\n   \
+      \ <div class=\"sidebar-content\" anvil-name=\"sidebar-content\">\n      <div\
+      \ class=\"avatar-container\" anvil-slot=\"user-avatar-slot\">\n        <p anvil-if-slot-empty=\"\
+      user-avatar-slot\">User Avatar</p>\n      </div>\n      <div class=\"primary-navigation\"\
+      >\n        <div class=\"navbar-container\">\n          <div class=\"nav-top\"\
+      \ anvil-slot=\"nav-top-slot\">\n          </div>\n          <div class=\"nav-bottom\"\
+      \ anvil-slot=\"nav-bottom-slot\">\n          </div>\n        </div>\n      </div>\n\
+      \    </div>\n    <div class=\"page-content\" >\n      <div class=\"title-container\"\
+      \ anvil-slot=\"title-container-slot\">\n        <p anvil-if-slot-empty=\"title-container-slot\"\
+      >Title Goes Here</p>\n      </div>\n      <div class=\"main-content\" anvil-slot=\"\
+      main-content-slot\">\n        <p anvil-if-slot-empty=\"main-content-slot\" style=\"\
+      padding: 30px;\">\n          Page Content Goes here\n        </p>\n      </div>\n\
+      \    </div>\n  </div>\n</div>\n\n\n"}
+components: []
+is_package: true
+slots:
+  avatar_slot:
+    index: 0
+    set_layout_properties: {slot: user-avatar-slot}
+    target: {type: container, name: ''}
+  navigation_slot:
+    index: 0
+    set_layout_properties: {slot: primary-nav-slot}
+    target: {type: container, name: ''}
+  slot_1:
+    index: 0
+    set_layout_properties: {slot: title-container-slot}
+    target: {type: container, name: ''}
+  slot_2:
+    index: 0
+    set_layout_properties: {slot: main-content-slot}
+    target: {type: container, name: ''}
+  nav_top_slot:
+    index: 0
+    set_layout_properties: {slot: nav-top-slot}
+    target: {type: container, name: ''}
+  nav_bottom_slot:
+    index: 0
+    set_layout_properties: {slot: nav-bottom-slot}
+    target: {type: container, name: ''}

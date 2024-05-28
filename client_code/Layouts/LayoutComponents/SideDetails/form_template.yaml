@@ -1,0 +1,16 @@
+properties:
+- {name: visible, type: boolean, important: true, default_binding_prop: true, default_value: true,
+  designer_hint: visible}
+is_package: true
+custom_component: true
+components: []
+container:
+  type: HtmlTemplate
+  properties:
+    html: "<div anvil-name=\"details-container\" class=\"section-containers details-panel\"\
+      >          \n  <div anvil-name=\"details-content-static\" class=\"static-section\
+      \ \" anvil-slot=\"details-content-static-slot\" ></div>\n  <div anvil-name=\"\
+      details-content\" class=\"scrolling-section\" anvil-slot=\"details-content-slot\"\
+      \ ></div>\n</div>"
+    role: [flex-initial]
+custom_component_container: true

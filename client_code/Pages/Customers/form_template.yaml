@@ -1,0 +1,278 @@
+layout:
+  type: form:Layouts.AppLayouts.ToggleWithSlide
+  properties: {slide_open: true, details_visible: true}
+  form_event_bindings: {}
+is_package: true
+components_by_slot:
+  details_scrolling_slot:
+  - name: recent_tickets
+    properties: {}
+    type: form:Components.Ticket.RecentTickets
+    layout_properties: {}
+    data_bindings:
+    - {property: item, code: self.customer_tickets, writeback: false}
+  sliding_static_slot:
+  - name: spacer_1
+    properties:
+      spacing:
+        padding: [50px, 35px, '', 35px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: label_1
+      properties: {text: Edit Profile, role: head-title}
+      type: Label
+      layout_properties: {slot: spacer-slot}
+  title_slot:
+  - name: label_2
+    properties: {text: Customers}
+    type: Label
+    layout_properties: {}
+  rail_slot:
+  - name: spacer_2
+    properties:
+      spacing:
+        padding: [40px, null, 40px, null]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: letters_repeating_panel
+      properties: {item_template: Components.RailLetters}
+      type: RepeatingPanel
+      layout_properties: {slot: spacer-slot}
+  primary_static_slot:
+  - name: flow_panel_1
+    properties: {align: justify, role: customers-control-bar, spacing_below: none}
+    type: FlowPanel
+    layout_properties: {}
+    components:
+    - name: flow_panel_2
+      properties: {}
+      type: FlowPanel
+      components:
+      - name: select_all_box
+        properties: {text: Select All, font_size: 16, spacing_above: none, spacing_below: none,
+          visible: true, bold: true, foreground: 'theme:Grey 300'}
+        type: CheckBox
+        event_bindings: {change: on_select_all_toggled}
+        layout_properties: {}
+      - name: delete_link
+        properties: {text: Delete, foreground: 'theme:Grey 300', font_size: 16, spacing_above: none,
+          spacing_below: none}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: delete_link_click}
+      - name: clear_selected_link
+        properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#332F5B',
+          visible: false, text: Clear selected, font_size: 16, wrap_on: mobile, font: '',
+          col_spacing: medium, spacing_above: none, icon_align: left, col_widths: '',
+          spacing_below: none, italic: false, background: '', bold: false, underline: false,
+          icon: ''}
+        type: Link
+        event_bindings: {click: clear_selected_link_click}
+        layout_properties: {}
+  primary_scrolling_slot:
+  - name: data_grid_1
+    properties:
+      columns:
+      - {id: JKSDUP, title: selected, data_key: selected, width: '39.71484375', expand: false}
+      - {id: VJQQOR, title: avatar, data_key: avatar, width: '79.97265625', expand: false}
+      - {id: OJLQEN, title: name, data_key: name}
+      - {id: EAFXXB, data_key: company, title: company}
+      - {id: HPNQAM, data_key: phone, title: phone}
+      - {id: LJTBEU, data_key: email, title: email}
+      rows_per_page: 10000
+      show_page_controls: false
+      auto_header: false
+    type: DataGrid
+    components:
+    - name: data_row_panel_header
+      properties: {auto_display_data: false, role: customers-header-bar}
+      type: DataRowPanel
+      components:
+      - name: label_3
+        properties: {text: Name, spacing_above: none, spacing_below: none, bold: true,
+          font_size: 12, foreground: 'theme:Grey 400'}
+        type: Label
+        layout_properties: {column: OJLQEN}
+      - name: label_4
+        properties: {text: Company, spacing_above: none, spacing_below: none, bold: true,
+          font_size: 12, foreground: 'theme:Grey 400'}
+        type: Label
+        layout_properties: {column: EAFXXB}
+      - name: label_5
+        properties: {text: Telephone, spacing_above: none, spacing_below: none, bold: true,
+          font_size: 12, foreground: 'theme:Grey 400'}
+        type: Label
+        layout_properties: {column: HPNQAM}
+      - name: label_6
+        properties: {text: Email, spacing_above: none, spacing_below: none, bold: true,
+          font_size: 12, foreground: 'theme:Grey 400'}
+        type: Label
+        layout_properties: {column: LJTBEU}
+      layout_properties: {pinned: false}
+    - name: letter_group_repeating_panel
+      properties: {item_template: Components.Customer.CustomerLetterGroup, role: null}
+      type: RepeatingPanel
+      layout_properties: {}
+      data_bindings:
+      - {property: items, code: self.customer_groups, writeback: false}
+    layout_properties: {}
+  details_static_slot:
+  - name: spacer_3
+    properties:
+      spacing:
+        padding: [50px, 35px, null, 35px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: flow_panel_3
+      properties: {spacing_above: none, spacing_below: none, align: justify, foreground: 'theme:Secondary
+          500'}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_7
+        properties: {text: Customer Details, spacing_above: none, spacing_below: none,
+          font_size: null, foreground: 'theme:Secondary 500', role: head-title}
+        type: Label
+        layout_properties: {}
+      - name: close_details_link
+        properties: {text: Close, spacing_above: none, spacing_below: none, foreground: 'theme:White'}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: close_details_panel}
+    - name: edit_details_link
+      properties: {text: Edit, spacing_above: none, spacing_below: medium, role: no-padding,
+        foreground: 'theme:White'}
+      type: Link
+      layout_properties: {slot: spacer-slot}
+      event_bindings: {click: edit_details_link_click}
+      components: []
+    - name: customer_details_1
+      properties: {}
+      type: form:Components.Customer.CustomerDetails
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: item, code: self.open_customer, writeback: false}
+    - name: flow_panel_4
+      properties: {align: justify}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_5_copy
+        properties: {text: Recent Tickets, font_size: null, foreground: 'theme:Secondary
+            500', role: head-title}
+        type: Label
+        layout_properties: {}
+      - name: new_ticket_of_customer
+        properties: {align: center, visible: true}
+        type: form:Components.Reusable.AppButton
+        layout_properties: {}
+        components:
+        - name: plus_1
+          properties: {size: 16, fill: 'theme:Secondary 500'}
+          type: form:Components.Icons.Plus
+          layout_properties: {slot: icon-slot}
+        - name: label_8
+          properties: {text: New Ticket, foreground: 'theme:Secondary 500'}
+          type: Label
+          layout_properties: {slot: button-text-slot}
+        event_bindings: {click: new_ticket_of_customer_click}
+  sliding_scrolling_slot:
+  - name: spacer_4
+    properties:
+      spacing:
+        padding: ['', 35px, null, 35px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: spacer_5
+      properties:
+        spacing:
+          padding: [null, 10px, null, 30px]
+      type: form:Components.Reusable.Spacer
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_12
+        properties: {text: Personal, spacing_above: small, bold: true, font: '', font_size: 16,
+          spacing_below: none, foreground: ''}
+        type: Label
+        layout_properties: {slot: spacer-slot}
+    - name: first_name_textbox
+      properties: {text: First Name, placeholder: First Name, role: text-form-component,
+        font_size: 16}
+      type: TextBox
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: text, code: 'self.customer_copy[''first_name'']', writeback: true}
+    - name: last_name_textbox
+      properties: {text: Last Name, placeholder: Last Name, role: text-form-component,
+        font_size: 16}
+      type: TextBox
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: text, code: 'self.customer_copy[''last_name'']', writeback: true}
+    - name: spacer_6
+      properties:
+        spacing:
+          padding: [null, null, null, 30px]
+      type: form:Components.Reusable.Spacer
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_11
+        properties: {text: Company, bold: true, spacing_below: none, font_size: 16}
+        type: Label
+        layout_properties: {slot: spacer-slot}
+    - name: company_textbox
+      properties: {placeholder: Company, text: Company, role: text-form-component,
+        font_size: 16}
+      type: TextBox
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: text, code: 'self.customer_copy[''company'']', writeback: true}
+    - name: title_textbox
+      properties: {placeholder: Title, text: Title, role: text-form-component, font_size: 16}
+      type: TextBox
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: text, code: 'self.customer_copy[''title'']', writeback: true}
+    - name: spacer_7
+      properties:
+        spacing:
+          padding: [null, null, null, 30px]
+      type: form:Components.Reusable.Spacer
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_10
+        properties: {text: Contact, bold: true, spacing_below: none, font_size: 16}
+        type: Label
+        layout_properties: {slot: spacer-slot}
+    - name: phone
+      properties: {placeholder: Telephone Number, text: Phone, role: text-form-component,
+        font_size: 16}
+      type: TextBox
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: text, code: 'self.customer_copy[''phone'']', writeback: true}
+    - name: email
+      properties: {placeholder: Email, text: Email, role: text-form-component, font_size: 16}
+      type: TextBox
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: text, code: 'self.customer_copy[''email'']', writeback: true}
+    - name: flow_panel_5
+      properties: {align: justify, spacing_above: medium}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: save_link
+        properties: {text: Save, foreground: 'theme:Lilac 600', bold: true}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: save_link_click}
+      - name: delete_cust_link
+        properties: {text: Delete, foreground: 'theme:Error 500', bold: true}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: delete_cust_link_click}

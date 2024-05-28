@@ -1,0 +1,47 @@
+is_package: true
+container:
+  type: ColumnPanel
+  properties: {role: recent-ticket-card}
+components:
+- name: recent_ticket_link
+  properties: {align: center}
+  type: Link
+  layout_properties: {grid_position: 'CNOMUO,JUBZXE'}
+  components:
+  - name: flow_panel_1
+    properties: {align: justify, spacing_above: medium, spacing_below: none, role: no-padding,
+      spacing: small}
+    type: FlowPanel
+    layout_properties: {grid_position: 'JIGYDS,RTACQE'}
+    components:
+    - name: label_3
+      properties: {text: ticket number, spacing_above: none, spacing_below: none,
+        role: no-padding, font_size: 12, foreground: 'theme:White'}
+      type: Label
+      layout_properties: {}
+      data_bindings:
+      - {property: text, code: 'f"#{self.item[''ticket''][''number'']}"', writeback: false}
+    - name: label_4
+      properties: {text: date, spacing_above: none, spacing_below: none, role: no-padding,
+        font_size: 12, foreground: 'theme:White'}
+      type: Label
+      layout_properties: {}
+      data_bindings:
+      - {property: text, code: 'self.item[''ticket''][''date''].strftime("%d %b %Y")',
+        writeback: false}
+  - name: label_1
+    properties: {text: title, spacing_above: none, spacing_below: none, role: no-padding,
+      foreground: 'theme:White'}
+    type: Label
+    layout_properties: {grid_position: 'VXPLHY,IMHPCC'}
+    data_bindings:
+    - {property: text, code: 'self.item[''ticket''][''title'']', writeback: false}
+  - name: label_2
+    properties: {text: blurb, spacing_above: none, spacing_below: medium, role: no-padding,
+      foreground: 'theme:Primary 300'}
+    type: Label
+    layout_properties: {grid_position: 'ESRWMV,BDSXDR'}
+    data_bindings:
+    - {property: text, code: 'f"{self.item[''message''][''details''][0:25]}..."',
+      writeback: false}
+  event_bindings: {click: recent_ticket_link_click}

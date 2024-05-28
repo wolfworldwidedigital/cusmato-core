@@ -1,0 +1,25 @@
+is_package: true
+container:
+  type: ColumnPanel
+  properties: {role: null}
+components:
+- name: linear_panel_1
+  properties: {}
+  type: LinearPanel
+  layout_properties: {grid_position: 'EFXEPP,VUIFQU', full_width_row: true}
+  components:
+  - name: letter
+    properties: {text: X, role: letter-group-letter}
+    type: Label
+    layout_properties: {}
+    data_bindings:
+    - {property: text, code: 'self.item[''letter'']', writeback: false}
+- name: customer_repeating_panel
+  properties: {item_template: Components.Customer.AllCustomer}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'HMKQOD,MNWHMP', full_width_row: true}
+  data_bindings:
+  - {property: items, code: 'self.item[''customers'']', writeback: false}
+custom_component: true
+properties:
+- {name: selected, type: boolean, default_value: false, important: true, default_binding_prop: true}

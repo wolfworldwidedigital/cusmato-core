@@ -1,0 +1,15 @@
+container:
+  type: HtmlTemplate
+  properties: {html: "<div style=\"position: relative;display:flex;justify-content:center;height:300px\"\
+      >\n  <canvas anvil-name=\"chart\" width=\"400\" height=\"120\"></canvas>\n</div>\n"}
+  event_bindings: {}
+components: []
+is_package: true
+custom_component: true
+properties:
+- name: labels
+  type: text[]
+  default_value: []
+  important: true
+  default_binding_prop: true
+- {name: datasets, type: object, important: true}

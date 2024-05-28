@@ -1,0 +1,60 @@
+properties:
+- {name: title, type: string, default_value: '', important: true, default_binding_prop: true}
+- {name: up_is_good, type: boolean, default_value: true, important: true}
+is_package: true
+events:
+- {name: click, default_event: true}
+custom_component: true
+components:
+- name: link_1
+  properties: {spacing_above: none, spacing_below: none, role: no-padding}
+  type: Link
+  layout_properties: {grid_position: 'DKZSEV,EGRUQA'}
+  components:
+  - name: spacer_1
+    properties:
+      spacing:
+        padding: [null, null, null, 20px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {grid_position: 'XANJAD,CRTHLH'}
+    components:
+    - name: number_label
+      properties: {text: number, spacing_above: none, spacing_below: none, font_size: 50,
+        role: no-padding, foreground: 'theme:Primary 500'}
+      type: Label
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: text, code: 'self.item[''number'']', writeback: false}
+    - name: title_label
+      properties: {text: Stat Card, spacing_above: none, spacing_below: none, role: no-padding,
+        bold: true, font_size: 16, foreground: 'theme:Grey 300'}
+      type: Label
+      layout_properties: {slot: spacer-slot}
+    - name: delta_panel
+      properties: {spacing_above: none, spacing_below: none, spacing: tiny, vertical_align: middle,
+        role: no-padding, visible: true}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: delta_label
+        properties: {text: '0', spacing_above: none, spacing_below: none, icon: '',
+          foreground: 'theme:Lilac 700', icon_align: left, role: no-padding, font_size: 12}
+        type: Label
+        layout_properties: {}
+        data_bindings:
+        - {property: icon, code: self.set_diff_marker(), writeback: false}
+      - name: time_period_label
+        properties: {text: vs last week, spacing_above: none, spacing_below: none,
+          role: no-padding, foreground: 'theme:Grey 200', font_size: 12}
+        type: Label
+        layout_properties: {}
+        data_bindings:
+        - {property: visible, code: 'bool(self.item[''delta''] is not None)', writeback: false}
+      data_bindings: []
+  event_bindings: {click: link_1_click}
+container:
+  type: ColumnPanel
+  properties:
+    col_widths: '{}'
+    foreground: ''
+    role: [stat-card]

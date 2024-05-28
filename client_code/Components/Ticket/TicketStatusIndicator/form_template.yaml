@@ -1,0 +1,17 @@
+container:
+  type: HtmlTemplate
+  properties: {html: "<div anvil-name=\"indicator\" class=\"ticket-detail-indicator\"\
+      >\n  <div anvil-name=\"indicator-text\" class=\"ticket-detail-indicator-text\"\
+      \ >STATUS</div>\n  <div anvil-name=\"indicator-tail\" class=\"ticket-detail-indicator-tail\"\
+      \ /> \n</div>", role: ticket-status-indicator}
+components: []
+is_package: true
+custom_component: true
+properties:
+- name: status
+  type: enum
+  important: true
+  default_binding_prop: true
+  options: [OVERDUE, CLOSED]
+  default_value: OVERDUE
+- {name: visible, type: boolean, default_value: true, important: true, designer_hint: visible}

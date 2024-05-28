@@ -1,0 +1,75 @@
+is_package: true
+container:
+  type: ColumnPanel
+  properties: {role: assign-customer-card, spacing_above: none, spacing_below: none,
+    col_spacing: none}
+components:
+- name: customer_link
+  properties: {}
+  type: Link
+  layout_properties: {grid_position: 'GNNLRO,FXDQDV'}
+  components:
+  - name: spacer_1
+    properties:
+      spacing:
+        margin: [null, auto, null, '']
+        padding: [null, 10px, null, 10px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {grid_position: 'ZKWVME,KTORLE'}
+    components:
+    - name: flow_panel_1
+      properties: {align: justify, vertical_align: middle}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: flow_panel_1_copy
+        properties: {align: justify, vertical_align: middle, spacing_below: none,
+          spacing_above: none}
+        type: FlowPanel
+        layout_properties: {}
+        components:
+        - name: user_1
+          properties: {size: 50, primary_fill: 'theme:Lilac 700', secondary_fill: 'theme:Primary
+              300'}
+          type: form:Components.Icons.User
+          layout_properties: {}
+        - name: linear_panel_1
+          properties: {spacing_above: none, spacing_below: none}
+          type: LinearPanel
+          layout_properties: {}
+          components:
+          - name: flow_panel_2
+            properties: {spacing_above: none, spacing_below: none, role: no-padding,
+              spacing: none}
+            type: FlowPanel
+            layout_properties: {}
+            components:
+            - name: label_1
+              properties: {spacing_above: none, spacing_below: none, text: First,
+                role: no-padding, foreground: 'theme:Grey 950'}
+              type: Label
+              layout_properties: {}
+              data_bindings:
+              - {property: text, code: 'self.item[''first_name'']', writeback: false}
+            - name: last_name_label
+              properties: {spacing_above: none, spacing_below: none, text: LAST, role: no-padding,
+                bold: true, foreground: 'theme:Grey 950'}
+              type: Label
+              data_bindings:
+              - {property: text, code: 'f" {self.item[''last_name'']}"', writeback: false}
+              layout_properties: {}
+          - name: label_1_copy
+            properties: {spacing_above: none, spacing_below: none, text: Company,
+              role: no-padding, font_size: 14, foreground: 'theme:Grey 200'}
+            type: Label
+            layout_properties: {}
+            data_bindings:
+            - {property: text, code: 'f"{self.item[''company'']}"', writeback: false}
+      - name: check_box
+        properties: {icon: 'fa:check-square', foreground: 'theme:Lilac 500'}
+        type: Label
+        layout_properties: {}
+  event_bindings: {click: customer_link_click}
+custom_component: true
+properties:
+- {name: selected, type: boolean, default_value: false, important: true, default_binding_prop: true}

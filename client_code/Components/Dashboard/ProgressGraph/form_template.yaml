@@ -1,0 +1,19 @@
+container:
+  type: HtmlTemplate
+  properties: {html: "<div style=\"--percent:0\" anvil-name=\"progress-chart\">\n\
+      \  <svg width=\"120\" height=\"120\" viewbox=\"0 0 120 120\">\n    <circle\n\
+      \      cx=\"60\"\n      cy=\"60\"\n      r=\"52\"\n      fill=\"none\"\n   \
+      \   stroke=\"var(--grey-100, #eee)\"\n      stroke-width=\"8\" />\n    <circle\n\
+      \      cx=\"60\"\n      cy=\"60\"\n      r=\"52\"\n      fill=\"none\"\n   \
+      \   stroke=\"var(--lilac-500, #9a4dce)\"\n      stroke-width=\"8\"\n      stroke-dasharray=\"\
+      calc(var(--percent, 0) * 326.73) 326.73\"\n      transform=\"rotate(-90 60 60)\"\
+      \ />\n    <text anvil-name=\"progress-chart-text\"\n      fill=\"var(--primary-500,\
+      \ black)\"\n      style=\"font-size:36px; font-family:Barlow;\"\n      text-anchor=\"\
+      middle\"\n      x=\"60\"\n      y=\"70\"></text>\n  </svg>\n</div>"}
+  event_bindings: {}
+components: []
+is_package: true
+custom_component: true
+properties:
+- {name: percentage, type: number, important: true, default_binding_prop: true, default_value: 1}
+- {name: display_value, type: number, important: true, default_value: 0}

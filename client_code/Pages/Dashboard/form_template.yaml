@@ -1,0 +1,217 @@
+layout:
+  type: form:Layouts.AppLayouts.BlankPrimaryWithForm
+  form_event_bindings: {show: form_show}
+is_package: true
+components_by_slot:
+  title_slot:
+  - name: label_1
+    properties: {text: Dashboard}
+    type: Label
+    layout_properties: {}
+  form_static_slot: []
+  form_scrolling_slot:
+  - name: spacer_3
+    properties:
+      spacing:
+        padding: [50px, 35px, null, 35px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: column_panel_1
+      properties: {role: secondary-panel, col_widths: '{"UZRHON":20,"PEASEL":40,"QCOTHK":20,"EPJIJE":40,"EFLOAE":20,"PDENGK":40}',
+        spacing_below: medium}
+      type: ColumnPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_1_copy
+        properties: {text: Resolution Filters, role: head-title}
+        type: Label
+        layout_properties: {grid_position: 'AQXCME,XJALKI'}
+      - name: label_2_copy
+        properties: {text: Category, foreground: 'theme:Grey 400'}
+        type: Label
+        layout_properties: {grid_position: 'PKASKB,EFLOAE'}
+      - name: category_dropdown
+        properties:
+          role: [form-component]
+          include_placeholder: true
+          placeholder: Select a category
+        type: DropDown
+        layout_properties: {grid_position: 'PKASKB,PDENGK'}
+        data_bindings:
+        - {property: items, code: self.categories, writeback: false}
+        - {property: selected_value, code: 'self.filters[''category'']', writeback: true}
+        event_bindings: {change: change_filter}
+      - name: label_2_copy_copy
+        properties: {text: Priority, foreground: 'theme:Grey 400'}
+        type: Label
+        layout_properties: {grid_position: 'DSOSSZ,QCOTHK'}
+      - name: priority_dropdown
+        properties:
+          role: [form-component]
+          include_placeholder: true
+          placeholder: Select a priority
+        type: DropDown
+        layout_properties: {grid_position: 'DSOSSZ,EPJIJE'}
+        data_bindings:
+        - {property: items, code: self.priorities, writeback: false}
+        - {property: selected_value, code: 'self.filters[''priority'']', writeback: true}
+        event_bindings: {change: change_filter}
+      - name: label_2_copy_copy_copy
+        properties: {text: Start Date, foreground: 'theme:Grey 400'}
+        type: Label
+        layout_properties: {grid_position: 'ISOASA,UZRHON VPFVJA,YPHTUM'}
+      - name: label_2_copy_copy_copy_copy
+        properties: {text: End Date, foreground: 'theme:Grey 400'}
+        type: Label
+        layout_properties: {grid_position: 'ISOASA,UZRHON KVTCCK,QRWLHE'}
+      - name: start_date_picker
+        properties: {format: '%d/%m/%Y', role: form-component}
+        type: DatePicker
+        layout_properties: {grid_position: 'ISOASA,PEASEL TLUFZD,HNNCJG'}
+        data_bindings:
+        - {property: date, code: 'self.date_filters[''start'']', writeback: true}
+      - name: end_date_picker
+        properties: {format: '%d/%m/%Y', role: form-component}
+        type: DatePicker
+        layout_properties: {grid_position: 'ISOASA,PEASEL'}
+        data_bindings:
+        - {property: date, code: 'self.date_filters[''end'']', writeback: true}
+    - name: apply_filter_button_copy
+      properties: {align: center, size: small, visible: true}
+      type: form:Components.Reusable.AppButton
+      layout_properties: {slot: spacer-slot}
+      event_bindings: {click: apply_filter_button_click}
+      components:
+      - name: label_2_copy_3
+        properties: {text: Apply Filters, spacing_above: none, spacing_below: none,
+          foreground: 'theme:White', bold: true}
+        type: Label
+        layout_properties: {slot: button-text-slot}
+    - name: clear_filters_link
+      properties: {text: Clear Filters, align: center, role: null, spacing_above: none,
+        font_size: 14, foreground: 'theme:Grey 300'}
+      type: Link
+      layout_properties: {slot: spacer-slot}
+      event_bindings: {click: clear_filters_link_click}
+  primary_scrolling_slot:
+  - name: spacer_1
+    properties:
+      spacing:
+        padding: [null, null, null, auto]
+        margin: [50px, 96px, 40px, 96px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: label_3
+      properties: {text: 'Weekly Ticket Overview
+
+          ', bold: true, font_size: 16}
+      type: Label
+      layout_properties: {slot: spacer-slot}
+  - name: stat_panel
+    properties: {align: center, spacing: small, spacing_above: small}
+    type: FlowPanel
+    layout_properties: {}
+    components:
+    - name: new_tickets_stat
+      properties: {title: New Tickets, up_is_good: false}
+      type: form:Components.Dashboard.StatCard
+      layout_properties: {}
+      data_bindings:
+      - {property: item, code: 'self.headline_stats[''new_tickets'']', writeback: false}
+      event_bindings: {click: new_tickets_stat_click}
+    - name: closed_tickets_stat
+      properties: {title: Closed Tickets}
+      type: form:Components.Dashboard.StatCard
+      layout_properties: {}
+      data_bindings:
+      - {property: item, code: 'self.headline_stats[''closed_tickets'']', writeback: false}
+      event_bindings: {click: closed_tickets_stat_click}
+    - name: open_tickets_stat
+      properties: {title: Open Tickets}
+      type: form:Components.Dashboard.StatCard
+      layout_properties: {}
+      data_bindings:
+      - {property: item, code: 'self.headline_stats[''all_open'']', writeback: false}
+      event_bindings: {click: open_tickets_stat_click}
+  - name: spacer_1_copy
+    properties:
+      spacing:
+        padding: [null, null, null, auto]
+        margin: [20px, 96px, 40px, 96px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: label_3_copy
+      properties: {text: 'Resolution Overview
+
+          ', bold: true, font_size: 16}
+      type: Label
+      layout_properties: {slot: spacer-slot}
+  - name: progress_panel
+    properties: {align: center, spacing: huge, spacing_above: large}
+    type: FlowPanel
+    layout_properties: {}
+    components:
+    - name: first_reply_panel
+      properties: {spacing_above: none, spacing_below: none, vertical_align: middle,
+        spacing: none, role: null}
+      type: FlowPanel
+      components:
+      - name: closed_on_first_chart
+        properties: {display_value: 0, percentage: 0}
+        type: form:Components.Dashboard.ProgressGraph
+        layout_properties: {}
+      - name: column_panel_2
+        properties: {role: null, col_spacing: tiny}
+        type: ColumnPanel
+        components:
+        - name: label_5
+          properties: {text: First reply resolved, role: no-padding, bold: true, foreground: 'theme:Grey
+              500'}
+          type: Label
+          layout_properties: {grid_position: 'ZUGBGN,HVTGYN'}
+        - name: closed_on_first_label
+          properties: {role: no-padding, bold: true, font_size: 12, foreground: 'theme:Grey
+              200'}
+          type: Label
+          layout_properties: {grid_position: 'ZUGBGN,HVTGYN RAIBHL,JUKKRX'}
+        layout_properties: {}
+      layout_properties: {}
+    - name: new_vs_returning_panel
+      properties: {role: null, vertical_align: middle, spacing: none}
+      type: FlowPanel
+      components:
+      - name: new_custs_chart
+        properties: {display_value: 0, percentage: 0}
+        type: form:Components.Dashboard.ProgressGraph
+        layout_properties: {width: 164.48046875}
+      - name: column_panel_3
+        properties: {role: null, col_spacing: tiny}
+        type: ColumnPanel
+        layout_properties: {}
+        components:
+        - name: label_6
+          properties: {text: New vs Returning, role: no-padding, bold: true, foreground: 'theme:Grey
+              500'}
+          type: Label
+          layout_properties: {grid_position: 'POAXUW,DQHKJQ'}
+        - name: new_custs_label
+          properties: {role: no-padding, bold: true, foreground: 'theme:Grey 200',
+            font_size: 12}
+          type: Label
+          layout_properties: {grid_position: 'BHQUUP,UQZAWJ'}
+      layout_properties: {}
+  - name: spacer_2
+    properties:
+      spacing:
+        margin: [null, '35[px', null, 35px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: resolution_graph
+      properties: {}
+      type: form:Components.Dashboard.ResolutionGraph
+      layout_properties: {slot: spacer-slot}
+  primary_static_slot: []

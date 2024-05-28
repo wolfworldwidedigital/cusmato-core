@@ -1,0 +1,16 @@
+properties:
+- {name: text, type: string, default_value: '', important: true, default_binding_prop: true}
+- {name: active, type: boolean, default_value: false, important: true}
+- {name: name, type: string, default_value: '', important: true}
+is_package: true
+events:
+- {name: click, default_event: true}
+custom_component: true
+components: []
+container:
+  type: HtmlTemplate
+  properties: {html: "<div anvil-name=\"navlink-component\" class=\"navlink-component\"\
+      >\n  <div anvil-slot=\"navlink-icon-slot\">\n    <p anvil-if-slot-empty=\"navlink-icon-slot\"\
+      >\u56e7</p>\n  </div>\n  <div anvil-name=\"navlink-text\" class=\"navlink-text\"\
+      \ >\n    Navigation Link\n  </div>\n</div>"}
+custom_component_container: true

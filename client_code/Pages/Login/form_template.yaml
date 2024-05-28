@@ -1,0 +1,31 @@
+container:
+  type: HtmlTemplate
+  properties: {html: "<div class=\"login-main\">\n  <div class=\"login-card\">\n \
+      \   <div anvil-slot=\"login\">\n      <p anvil-if-slot-empty=\"login\">Login\
+      \ Page</p>\n    </div>\n  </div>\n</div>"}
+  event_bindings: {show: form_show}
+components:
+- name: spacer_1
+  properties:
+    spacing:
+      padding: [40px, 40px, 50px, 40px]
+  type: form:Components.Reusable.Spacer
+  layout_properties: {slot: login}
+  components:
+  - name: label_1
+    properties: {text: Welcome to the Anvil Ticketing System, foreground: 'theme:White',
+      font_size: 26, spacing_below: large}
+    type: Label
+    layout_properties: {slot: spacer-slot}
+  - name: login_button
+    properties: {align: center, size: large, appearance: secondary}
+    type: form:Components.Reusable.AppButton
+    layout_properties: {slot: spacer-slot}
+    event_bindings: {click: login_button_click}
+    components:
+    - name: label_1_copy
+      properties: {text: Log in, font_size: 20, spacing_below: none, spacing_above: none,
+        foreground: 'theme:Primary 500', bold: true}
+      type: Label
+      layout_properties: {slot: button-text-slot}
+is_package: true

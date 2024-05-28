@@ -1,0 +1,61 @@
+is_package: true
+container:
+  type: DataRowPanel
+  properties: {role: all-customers-card}
+components:
+- name: checkbox
+  properties: {text: '', spacing_above: none, spacing_below: none, align: left, visible: true}
+  type: CheckBox
+  layout_properties: {column: JKSDUP}
+  event_bindings: {change: checkbox_change}
+- name: user_1
+  properties: {align: center, size: 50, primary_fill: 'theme:Lilac 700', secondary_fill: 'theme:Primary
+      200'}
+  type: form:Components.Icons.User
+  layout_properties: {column: VJQQOR}
+- name: customer_name_link
+  properties: {spacing_above: none, spacing_below: none}
+  type: Link
+  layout_properties: {column: OJLQEN}
+  components:
+  - name: flow_panel_1
+    properties: {spacing_above: none, spacing_below: none, spacing: tiny, vertical_align: middle,
+      foreground: 'theme:Grey 800'}
+    type: FlowPanel
+    layout_properties: {grid_position: 'VGLRJW,UWEQUS'}
+    components:
+    - name: first_label
+      properties: {spacing_above: none, spacing_below: none, text: First}
+      type: Label
+      layout_properties: {}
+      data_bindings:
+      - {property: text, code: 'self.item[''first_name'']', writeback: false}
+    - name: last_label
+      properties: {spacing_above: none, spacing_below: none, bold: true, text: last,
+        foreground: ''}
+      type: Label
+      layout_properties: {}
+      data_bindings:
+      - {property: text, code: 'self.item[''last_name'']', writeback: false}
+  event_bindings: {click: customer_name_link_click}
+- name: label_3
+  properties: {spacing_above: none, spacing_below: none, text: company, foreground: 'theme:Grey
+      200', font_size: 14}
+  type: Label
+  layout_properties: {column: EAFXXB}
+  data_bindings:
+  - {property: text, code: 'self.item[''company'']', writeback: false}
+- name: label_4
+  properties: {spacing_above: none, spacing_below: none, text: phone, foreground: 'theme:Grey
+      200', font_size: 14}
+  type: Label
+  layout_properties: {column: HPNQAM}
+  data_bindings:
+  - {property: text, code: 'self.item[''phone'']', writeback: false}
+- name: label_5
+  properties: {spacing_above: none, spacing_below: none, text: email, foreground: 'theme:Grey
+      200', font_size: 14}
+  type: Label
+  layout_properties: {column: LJTBEU}
+  data_bindings:
+  - {property: text, code: 'self.item[''email'']', writeback: false}

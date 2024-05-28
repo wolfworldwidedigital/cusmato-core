@@ -1,0 +1,11 @@
+container:
+  type: HtmlTemplate
+  properties: {html: "<div anvil-name=\"primary-container\" class=\"section-containers\
+      \ main-panel\" >          \n  <div anvil-name=\"primary-content-static\" class=\"\
+      static-section\" anvil-slot=\"primary-content-static-slot\" ></div>\n  <div\
+      \ anvil-name=\"primary-content\" class=\"scrolling-section\" anvil-slot=\"primary-content-slot\"\
+      \ ></div>\n</div>", role: flex-1}
+components: []
+is_package: true
+custom_component: true
+custom_component_container: true

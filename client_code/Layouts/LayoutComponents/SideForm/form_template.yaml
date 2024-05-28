@@ -1,0 +1,11 @@
+container:
+  type: HtmlTemplate
+  properties: {html: "<div anvil-name=\"form-container\" class=\"section-containers\
+      \ form-panel\" >          \n  <div anvil-name=\"form-content-static\" class=\"\
+      static-section \" anvil-slot=\"form-content-static-slot\" ></div>\n  <div anvil-name=\"\
+      form-content\" class=\"scrolling-section\" anvil-slot=\"form-content-slot\"\
+      \ ></div>\n</div>", role: flex-initial}
+components: []
+is_package: true
+custom_component: true
+custom_component_container: true

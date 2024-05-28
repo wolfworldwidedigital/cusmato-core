@@ -1,0 +1,94 @@
+properties: []
+is_package: true
+slots:
+  slot_2:
+    index: 0
+    set_layout_properties: {}
+    target: {type: slot, name: slot_2}
+  slot_1:
+    index: 0
+    set_layout_properties: {}
+    target: {type: slot, name: slot_1}
+layout:
+  type: form:Layouts.BaseLayout
+  form_event_bindings: {show: form_show}
+events: []
+components_by_slot:
+  avatar_slot:
+  - name: user_1
+    properties: {align: center, size: 80, secondary_fill: 'theme:Primary 300', primary_fill: 'theme:White',
+      visible: true}
+    type: form:Components.Icons.User
+    layout_properties: {}
+  - name: user_email_label
+    properties: {font_size: 20, text: USER, spacing_above: none}
+    type: Label
+    layout_properties: {}
+  nav_top_slot:
+  - name: spacer_1
+    properties:
+      spacing:
+        padding: [15px, null, 40px, null]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: new_ticket_button
+      properties: {align: center, size: large, appearance: secondary}
+      type: form:Components.Reusable.AppButton
+      layout_properties: {slot: spacer-slot}
+      event_bindings: {click: new_ticket_button_click}
+      components:
+      - name: label_1
+        properties: {text: New, font_size: 20, spacing_below: none, spacing_above: none,
+          foreground: 'theme:Primary 500', bold: true}
+        type: Label
+        layout_properties: {slot: button-text-slot}
+      - name: plus_1
+        properties: {align: left, size: 35, fill: 'theme:Primary 500'}
+        type: form:Components.Icons.Plus
+        layout_properties: {slot: icon-slot}
+  - name: dashboard_link
+    properties: {text: Dashboard, active: false, name: dashboard}
+    type: form:Components.NavLink
+    layout_properties: {}
+    event_bindings: {click: dashboard_link_click}
+    components:
+    - name: dashboard_1
+      properties: {size: 30, primary_fill: 'theme:Primary 400', secondary_fill: 'theme:Primary
+          300'}
+      type: form:Components.Icons.Dashboard
+      layout_properties: {slot: navlink-icon-slot}
+  - name: tickets_link
+    properties: {text: Tickets, active: false, name: tickets}
+    type: form:Components.NavLink
+    layout_properties: {}
+    event_bindings: {click: tickets_link_click}
+    components:
+    - name: tickets_1
+      properties: {size: 30, primary_fill: 'theme:Primary 400', secondary_fill: 'theme:Primary
+          300'}
+      type: form:Components.Icons.Tickets
+      layout_properties: {slot: navlink-icon-slot}
+  - name: customers_link
+    properties: {text: Customers, active: false, name: customers}
+    type: form:Components.NavLink
+    layout_properties: {}
+    event_bindings: {click: customers_link_click}
+    components:
+    - name: customer_1
+      properties: {size: 30, primary_fill: 'theme:Primary 400', secondary_fill: 'theme:Primary
+          300'}
+      type: form:Components.Icons.Customer
+      layout_properties: {slot: navlink-icon-slot}
+  nav_bottom_slot:
+  - name: signout_links
+    properties: {text: Sign Out}
+    type: form:Components.NavLink
+    layout_properties: {}
+    event_bindings: {click: signout_links_click}
+    components:
+    - name: sign_out_1_copy
+      properties: {size: 30, secondary_fill: 'theme:Primary 300', primary_fill: 'theme:Primary
+          400'}
+      type: form:Components.Icons.SignOut
+      layout_properties: {slot: navlink-icon-slot}

@@ -1,0 +1,284 @@
+layout:
+  type: form:Layouts.AppLayouts.PrimaryOnRight
+  event_bindings: {}
+  form_event_bindings: {}
+is_package: true
+components_by_slot:
+  title_slot:
+  - name: label_1
+    properties: {text: New Ticket}
+    type: Label
+    layout_properties: {}
+  form_static_slot:
+  - name: spacer_1
+    properties:
+      spacing:
+        margin: [30px, '30', null, 30px]
+        padding: [null, '30', null, 30px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: label_2
+      properties: {font_size: 20, text: Assign Customer, role: head-title, spacing_below: medium,
+        spacing_above: none}
+      type: Label
+      layout_properties: {slot: spacer-slot}
+    - name: text_box_search
+      properties: {placeholder: Search Customers, spacing_above: none, spacing_below: none,
+        role: search-box}
+      type: TextBox
+      layout_properties: {slot: spacer-slot}
+      event_bindings: {focus: text_box_search_focus, change: text_box_search_change,
+        pressed_enter: text_box_search_pressed_enter}
+    - name: flow_panel_1
+      properties: {align: center, spacing: tiny, spacing_above: small}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_3
+        properties: {text: or, font_size: 14}
+        type: Label
+        layout_properties: {}
+      - name: add_new_cust_link
+        properties: {text: Add New, font_size: 14, bold: true, foreground: 'theme:Lilac
+            500'}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: add_new_cust_link_click}
+  primary_static_slot:
+  - name: spacer_2
+    properties:
+      spacing:
+        padding: ['', '', '', '']
+        margin: [30px, 30px, '', 30px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: flow_panel_2
+      properties: {align: justify, spacing_above: none, spacing_below: none}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_4
+        properties: {text: Ticket Details, font_size: 20, role: head-title}
+        type: Label
+        layout_properties: {}
+      - name: new_ticket_number
+        properties: {text: '#0000', font_size: 20, role: head-title, foreground: 'theme:Grey
+            200'}
+        type: Label
+        layout_properties: {}
+    - name: flow_panel_4
+      properties: {spacing_above: none, spacing_below: none, vertical_align: middle}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_5
+        properties: {spacing_above: none, spacing_below: none, text: 'Customer:',
+          visible: true, font_size: 14, foreground: 'theme:Grey 400'}
+        type: Label
+      - name: selected_customer_label
+        properties:
+          text: Customer Name
+          spacing_above: none
+          spacing_below: none
+          background: theme:Lilac 500
+          foreground: theme:White
+          role: [pill-label]
+          font_size: 12
+          bold: false
+        type: Label
+        data_bindings:
+        - {property: visible, code: '', writeback: false}
+        layout_properties: {}
+      - name: no_customer
+        properties:
+          role: [pill-label]
+          foreground: theme:White
+          visible: false
+          text: Assign a customer to this ticket
+          font_size: 12
+          spacing_above: none
+          spacing_below: none
+          background: theme:Error 500
+          bold: true
+        type: Label
+        data_bindings:
+        - {property: visible, code: '', writeback: false}
+        layout_properties: {}
+    - name: flow_panel_4_copy
+      properties: {spacing_above: none, spacing_below: none, vertical_align: middle,
+        role: bottom-border, spacing: tiny}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_5_copy_2
+        properties: {spacing_above: none, spacing_below: none, text: 'Agent:', visible: true,
+          font_size: 14, foreground: 'theme:Grey 400'}
+        type: Label
+        layout_properties: {}
+      - name: drop_down_1
+        properties: {include_placeholder: true, placeholder: Select Agent, spacing_above: none,
+          spacing_below: none, role: new-ticket-select-component, align: left, font_size: 14}
+        type: DropDown
+        layout_properties: {}
+        data_bindings:
+        - {property: items, code: self.agents, writeback: false}
+        - {property: selected_value, code: 'self.item[''owner'']', writeback: true}
+    - name: text_box_1
+      properties: {placeholder: Ticket Title..., spacing_above: medium, spacing_below: medium,
+        role: new-ticket-text-component, background: '', font_size: 30}
+      type: TextBox
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: text, code: 'self.item[''title'']', writeback: true}
+    - name: flow_panel_5
+      properties: {align: left, spacing_above: small, spacing_below: small, vertical_align: full}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: drop_down_3
+        properties: {spacing_above: none, spacing_below: none, include_placeholder: true,
+          placeholder: Select Category, role: new-ticket-select-component, align: left}
+        type: DropDown
+        layout_properties: {}
+        data_bindings:
+        - {property: items, code: self.categories, writeback: false}
+        - {property: selected_value, code: 'self.item[''category'']', writeback: true}
+      - name: drop_down_2
+        properties: {spacing_above: none, spacing_below: none, placeholder: Select Urgency,
+          include_placeholder: true, role: new-ticket-select-component, align: left}
+        type: DropDown
+        layout_properties: {}
+        data_bindings:
+        - {property: items, code: self.priorities, writeback: false}
+        - {property: selected_value, code: 'self.item[''priority'']', writeback: true}
+      - name: date_picker_1
+        properties: {spacing_above: none, spacing_below: none, placeholder: Due Date,
+          format: '%d %b %Y', role: new-ticket-select-component}
+        type: DatePicker
+        layout_properties: {}
+        data_bindings:
+        - {property: date, code: 'self.item[''due'']', writeback: true}
+    - name: text_area_1
+      properties:
+        height: 357.1689453125
+        auto_expand: false
+        spacing_above: medium
+        spacing_below: medium
+        role: [new-ticket-text-component]
+        placeholder: Message Details...
+      type: TextArea
+      layout_properties: {slot: spacer-slot}
+      data_bindings:
+      - {property: text, code: self.details, writeback: true}
+    - name: flow_panel_7
+      properties: {spacing_above: none, spacing_below: none, align: justify}
+      type: FlowPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: clear_link
+        properties: {spacing_above: none, spacing_below: none, text: Clear, bold: true,
+          foreground: 'theme:Grey 300'}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: clear_link_click}
+      - name: send_button
+        properties: {align: left, size: small, visible: true}
+        type: form:Components.Reusable.AppButton
+        layout_properties: {}
+        components:
+        - name: save_ticket_button
+          properties: {size: 16, fill: 'theme:White'}
+          type: form:Components.Icons.Send
+          layout_properties: {slot: icon-slot}
+        - name: label_2_copy
+          properties: {text: Save, spacing_above: none, spacing_below: none, foreground: 'theme:White',
+            bold: true}
+          type: Label
+          layout_properties: {slot: button-text-slot}
+        event_bindings: {click: send_button_click}
+  primary_scrolling_slot: []
+  form_scrolling_slot:
+  - name: spacer_5
+    properties:
+      spacing:
+        margin: [null, 30px, null, 30px]
+    type: form:Components.Reusable.Spacer
+    layout_properties: {}
+    components:
+    - name: assign_new_customer_card
+      properties: {col_widths: '{"EPYLOB":20,"NNHNDY":40,"UXFWYI":20,"FMHOVA":40,"XYNEQH":20,"VOEGUY":40,"ZBXMTW":20,"WOFVVJ":40,"TYYGQJ":20,"LIGQYW":40,"BTEKGV":20,"OCNIUG":40}',
+        role: add-new-customer-panel, col_spacing: none, visible: true}
+      type: ColumnPanel
+      layout_properties: {slot: spacer-slot}
+      components:
+      - name: label_8
+        properties: {text: First Name}
+        type: Label
+        layout_properties: {grid_position: 'QRJEXB,EPYLOB'}
+      - name: first_name_textbox
+        properties: {role: text-form-component}
+        type: TextBox
+        layout_properties: {grid_position: 'QRJEXB,NNHNDY'}
+        data_bindings:
+        - {property: text, code: 'self.new_customer[''first_name'']', writeback: true}
+        event_bindings: {lost_focus: set_customer_label, pressed_enter: set_customer_label}
+      - name: label_8_copy
+        properties: {text: Last Name}
+        type: Label
+        layout_properties: {grid_position: 'IYOKUO,UXFWYI'}
+      - name: last_name_textbox
+        properties: {role: text-form-component}
+        type: TextBox
+        layout_properties: {grid_position: 'IYOKUO,FMHOVA'}
+        data_bindings:
+        - {property: text, code: 'self.new_customer[''last_name'']', writeback: true}
+        event_bindings: {lost_focus: set_customer_label, pressed_enter: set_customer_label}
+      - name: label_8_copy_2
+        properties: {text: Title}
+        type: Label
+        layout_properties: {grid_position: 'WMHCKQ,XYNEQH'}
+      - name: title_textbox
+        properties: {role: text-form-component}
+        type: TextBox
+        layout_properties: {grid_position: 'WMHCKQ,VOEGUY'}
+        data_bindings:
+        - {property: text, code: 'self.new_customer[''title'']', writeback: true}
+      - name: label_8_copy_3
+        properties: {text: Company}
+        type: Label
+        layout_properties: {grid_position: 'JPBYWB,ZBXMTW'}
+      - name: company_textbox
+        properties: {align: left, role: text-form-component}
+        type: TextBox
+        layout_properties: {grid_position: 'JPBYWB,WOFVVJ'}
+        data_bindings:
+        - {property: text, code: 'self.new_customer[''company'']', writeback: true}
+      - name: label_8_copy_4
+        properties: {text: Email}
+        type: Label
+        layout_properties: {grid_position: 'EJKEFN,TYYGQJ'}
+      - name: email_textbox
+        properties: {text: '', role: text-form-component}
+        type: TextBox
+        layout_properties: {grid_position: 'EJKEFN,LIGQYW'}
+        data_bindings:
+        - {property: text, code: 'self.new_customer[''email'']', writeback: true}
+      - name: label_8_copy_4_copy
+        properties: {text: Phone Number}
+        type: Label
+        layout_properties: {grid_position: 'GSIGET,BTEKGV'}
+      - name: phone_textbox
+        properties: {role: text-form-component}
+        type: TextBox
+        layout_properties: {grid_position: 'GSIGET,OCNIUG'}
+        data_bindings:
+        - {property: text, code: 'self.new_customer[''phone'']', writeback: true}
+      data_bindings:
+      - {property: visible, code: self.new, writeback: false}
+  - name: repeating_panel_results
+    properties: {item_template: Components.Customer.AssignExistingCustomer, spacing_above: none,
+      spacing_below: none}
+    type: RepeatingPanel
+    layout_properties: {}
