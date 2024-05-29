@@ -19,14 +19,14 @@ services:
   client_config: {}
   server_config: {}
 startup: {type: module, module: StartUp}
-package_name: Ticketing_System
+package_name: Ticketing_Cusmato
 allow_embedding: false
 name: Cusmato Mail2Ticket
 runtime_options:
   version: 3
   client_version: '3'
   server_version: python3-full
-  server_spec: {base: python310-standard}
+  server_spec: null
   legacy_features: {class_names: true, bootstrap3: true, __dict__: true, root_container: true}
   server_spec_disabled: {base: python310-standard, requirements: ''}
 metadata: {title: Cusmato Mail2Ticket, logo_img: 'asset:Cusmato-Site-logo-1024x1024.png',
